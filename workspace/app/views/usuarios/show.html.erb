@@ -1,0 +1,21 @@
+<h1><%= @post.name %></h1>
+
+<%= form_for :usuario, url: usuario_path do |f| %>
+
+<p><%= f.label :Idade %>          <%= @post.age %></p>
+<p><%= f.label :Email %>            <%= @post.email %></p>
+<p><%= f.label :Cargo %>          <%= @post.cargo %></p>
+
+<% if @post.user == current_user%>
+    <p><%= f.label :Senha %>          <%= @post.password %></p>
+<% end %>
+
+<hr>
+
+<% end %>
+<%= link_to "edit", edit_usuario_path(@post), :class => 'btn btn-default' %>
+
+<%= link_to "Delete", usuario_path(@post), 
+                method: :delete,
+                data: {confirm: 'Are you sure?'},
+                :class => 'btn btn-danger' %>

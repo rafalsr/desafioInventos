@@ -1,0 +1,43 @@
+<h1>Edit usuario</h1>
+
+<%= form_for :usuario, url: usuario_path(@post), method:  :patch do |f| %>
+    <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+    <% end %>
+
+<!--%= form_for :usuario, url: usuarios_path do |f| %-->
+<p>
+    <%= f.label :Nome %><br>
+    <%= f.text_field(:name, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.label :Idade %><br>
+    <%= f.text_field(:age, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.label :Email %><br>
+    <%= f.text_field(:email, {:class => 'form-control'}) %>
+</p>
+
+
+
+<p>
+    <%= f.label :Senha %><br>
+    <%= f.text_field(:password, {:class => 'form-control'}) %>
+</p>
+
+
+
+<p>
+    <%= f.label :Cargo %><br>
+    <%= f.text_field(:cargo, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.submit({:class => 'btn btn-primary'}) %>
+</p>
+<% end %>

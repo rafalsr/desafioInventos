@@ -1,0 +1,13 @@
+<h1>Usuarios Cadastrados</h1>
+
+<% @users.each do |user| %>
+    <div class="well">
+        <h3><%= user.name%></h3>
+        <p><%= user.age %></p>
+        <p><%= user.email %></p>
+        <!--p> <%= user.password %> </p-->
+        <p><%= user.cargo %></p>
+        
+        <%= link_to "detalhes", usuario_path(user), :class => 'btn btn-default' %>
+    </div>
+<% end %>

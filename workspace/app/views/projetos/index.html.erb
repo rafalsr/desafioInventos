@@ -1,0 +1,14 @@
+<p>
+    <h1>Projetos</h1>
+    <%= link_to "Adicionar", new_projeto_path, :class => 'btn btn-success' %>
+</p>
+
+<% @projs.each do |proj| %>
+    <div class="well">
+        <h3><%= proj.title%></h3>
+        <p><%= proj.description %></p>
+        <p><%= proj.deadline %></p>
+        
+        <%= link_to "detalhes", projeto_path(proj), :class => 'btn btn-default' %>
+    </div>
+<% end %>

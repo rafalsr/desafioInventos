@@ -1,4 +1,9 @@
-<h1>Usuarios Cadastrados</h1>
+
+
+<p>
+    <h1>Usuarios Cadastrados</h1>
+    <%= link_to "Adicionar", new_usuario_path, :class => 'btn btn-success' %>
+</p>
 
 <% @users.each do |user| %>
     <div class="well">

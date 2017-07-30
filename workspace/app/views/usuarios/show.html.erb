@@ -15,7 +15,9 @@
 <% end %>
 <%= link_to "edit", edit_usuario_path(@post), :class => 'btn btn-default' %>
 
-<%= link_to "Delete", usuario_path(@post), 
+<% if @post.user == current_user%>
+    <%= link_to "Delete", usuario_path(@post), 
                 method: :delete,
                 data: {confirm: 'Are you sure?'},
                 :class => 'btn btn-danger' %>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>Adicionar projeto</h1>
+
+<%= form_for :projeto, url: projetos_path do |f| %>
+    <% if @proj.errors.any? %>
+        <% @proj.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+    <% end %>
+
+<p>
+    <%= f.label :Título %><br>
+    <%= f.text_field(:title, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.label :Descrição %><br>
+    <%= f.text_area(:description, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.label :Prazo %><br>
+    <%= f.date_field(:deadline, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.submit({:class => 'btn btn-primary'}) %>
+</p>
+<% end %>

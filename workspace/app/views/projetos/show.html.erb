@@ -1,0 +1,17 @@
+<h1><%= @proj.title %></h1>
+
+<%= form_for :projeto, url: projeto_path do |f| %>
+
+<p><%= f.label :Titulo %>          <%= @proj.title %></p>
+<p><%= f.label :Descrição %>            <%= @proj.description %></p>
+<p><%= f.label :Prazo %>          <%= @proj.deadline %></p>
+
+<hr>
+
+<% end %>
+<%= link_to "edit", edit_projeto_path(@proj), :class => 'btn btn-default' %>
+
+<%= link_to "Delete", projeto_path(@proj), 
+                method: :delete,
+                data: {confirm: 'Are you sure?'},
+                :class => 'btn btn-danger' %>

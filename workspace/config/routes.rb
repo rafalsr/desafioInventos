@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     root 'usuarios#index', as: 'home'
 
   # Example of regular route:
-    get 'project' => 'projetos#project', as: 'project'
+    get 'projetos' => 'projetos#index', as: 'projetos'
     get 'index' => 'usuarios#index'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :usuarios
+    resources :projetos
 
   # Example resource route with options:
   #   resources :products do

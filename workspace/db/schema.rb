@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170729200732) do
+ActiveRecord::Schema.define(version: 20170731001214) do
+
+  create_table "bugs", force: :cascade do |t|
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "projetos", force: :cascade do |t|
     t.string   "title"
@@ -19,7 +25,10 @@ ActiveRecord::Schema.define(version: 20170729200732) do
     t.date     "deadline"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "bug_id"
   end
+
+  add_index "projetos", ["bug_id"], name: "index_projetos_on_bug_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

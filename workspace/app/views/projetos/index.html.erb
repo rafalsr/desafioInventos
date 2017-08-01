@@ -4,11 +4,39 @@
 </p>
 
 <% @projs.each do |proj| %>
-    <div class="well">
-        <h3><%= proj.title%></h3>
-        <p><%= proj.description %></p>
-        <p><%= proj.deadline %></p>
-        
-        <%= link_to "detalhes", projeto_path(proj), :class => 'btn btn-default' %>
+
+    <div class="row">
+        <div class="span6">
+            <div class="well">
+                <h3><%= proj.title%></h3>
+                <p><%= proj.description %></p>
+                <p><%= proj.deadline %></p>
+                
+                <%= link_to "detalhes", projeto_path(proj), :class => 'btn btn-default' %>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="well">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle"
+                       data-toggle="collapse"
+                       data-parent="#accordion2"
+                       href="#collapseOne">Bugs</a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse">
+                    <div class="span6">
+                        <div class="well well-small">
+                            <div class="accordion-toggle">
+                                ...some BUG...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span2"></div>                            
+                </div>
+            </div>
+        </div>
     </div>
+        
+
+    
 <% end %>

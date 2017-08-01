@@ -41,6 +41,7 @@ $(document).on 'click', '.btn-select', (e) ->
     ul.slideDown 300
     $(this).addClass 'active'
   return
+  
 $(document).on 'click', (e) ->
   target = $(e.target).closest('.btn-select')
   if !target.length

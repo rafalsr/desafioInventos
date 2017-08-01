@@ -32,6 +32,9 @@
 				    
                     <ul>
                         <li>
+                            <% @proj.bug_id do |bug| %>
+                            <% bug.description %>
+                            <% end %>
                         </li>
                     </ul>
                 </div>

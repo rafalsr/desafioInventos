@@ -26,7 +26,22 @@ class ProjetosController < ApplicationController
         
         if(@proj.save)
             
-            slack_notifier.ping("Novo projeto adicionado: " + @proj.title)
+            #slack_notifier.ping("Novo projeto adicionado: " + @proj.title)
+            
+            #if @proj.bug.length != 0
+            #    bug_description = @proj.bug
+            #end
+            
+            a_project_add = {
+              fallback: "Atenção Aviso a todos sem exceção",
+              text: "Everything looks peachy",
+              color: "danger",
+              author_name: current_user,
+              title: "bug_description",
+              title_link: "https://desafio-rafalsr.c9users.io/projetos"
+            }
+            
+            notifier.post text: "Novo projeto adicionado: \n"+ "<https://desafio-rafalsr.c9users.io/projetos|Click here> for details!", attachments: [a_project_add] 
             
             
             redirect_to @proj
@@ -64,12 +79,12 @@ class ProjetosController < ApplicationController
     end
     
     private def slack_notifier
-        Slack::Notifier.new "https://hooks.slack.com/services/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" do
-            defaults channel: "#canal-rafael-lima", 
-            username: "Rafael",
-            attachments:[{
-                            color: "good"
-            }]
-        end
+      #  Slack::Notifier.new "https://hooks.slack.com/services/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" do
+      #     defaults channel: "#canal-rafael-lima", 
+      #      username: "Rafael",
+      #       attachments:[{
+      #                      color: "good"
+      #      }]
+      #  end
     end
 end

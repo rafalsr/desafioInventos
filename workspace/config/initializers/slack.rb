@@ -1,4 +1,6 @@
-notifier = Slack::Notifier.new "https://hooks.slack.com/services/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" do
-  defaults channel: "#general",
+def notifier
+  Slack::Notifier.new "https://hooks.slack.com/services/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" do
+  defaults channel: "#canal-rafael-lima",
            username: "Rafael"
+  end
 end
